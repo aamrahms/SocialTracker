@@ -1,0 +1,41 @@
+body{
+	background:url(pics/_original.jpg) repeat;
+}
+.main{
+	border: 2px solid black;
+	border-radius: 8px;
+}
+td{
+	
+	padding:20px;
+	margin-right:50px;
+	
+}
+table{
+	
+	margin:auto;
+	margin-bottom:30px;
+	border-radius:30px;
+	background-color:black;
+	color:white;
+	display:block;
+	width:85%;
+}
+table table{
+	margin:5px 5px 5px 5px;
+}
+.main{
+	border:none;
+	font-size:20px;
+}
+.main{
+	box-shadow: red;
+	}
+	li{
+		list-style-type:none;
+	}
+#add{
+	float:right;
+	width:100px;
+	margin-right:50px;
+}

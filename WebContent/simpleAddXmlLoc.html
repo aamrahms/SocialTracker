@@ -1,0 +1,34 @@
+<script>var xml = "your xml file"          
+    markers = xml.documentElement.getElementsByTagName("marker");
+for (var i = 0; i < markers.length; i++) {
+  var name = entries[i].getAttribute("name"); 
+  var email = entries[i].getAttribute("email");
+  var place ..... an so on
+var lat = entries[i].getAttribute("latitude");
+var lng = entries[i].getAttribute("longitude");
+
+//the creation of point
+point = new google.maps.LatLng(
+      lat,
+      lng);
+//create actual marker 
+marker = new google.maps.Marker({
+map: map,
+position: point,
+ }); 
+to create the info window:
+
+infoWindow = new google.maps.InfoWindow;
+var html =  name + "&nbsp;" + email + '&nbsp;' place ; //+ ... whatever else 
+
+bindInfoWindow(marker, map, infoWindow, html);
+
+function bindInfoWindow(marker, map, infoWindow, html) {
+  google.maps.event.addListener(marker, 'click', function() {
+      infoWindow.close();
+    infoWindow.setContent(html);
+    infoWindow.open(map, marker, html);
+    map.setCenter(marker.getPosition()); // this will center the map on the clicked marker
+
+  });
+}</script>

@@ -1,0 +1,52 @@
+<script>
+var myXmlText = '<?xml version="1.0" encoding="ISO-8859-1"?>' +
+      '<coords>' +
+         '<item><position lat="50.1" lng="14.5"/><title>Praha</title></item>' +
+         '<item><position lat="51.5" lng="0"/><title>London</title></item>' +
+         '<item><position lat="48.8" lng="2.4"/><title>Paris</title></item>' +
+         '<item><position lat="52.5" lng="13.4"/><title>Berlin</title></item>' +
+         '<item><position lat="48.2" lng="16.4"/><title>Wien</title></item>' +
+      '</coords>';
+Parsing the xml text into xml DOM object:
+
+function parseXml(xmlText) {
+   var xmlDoc;
+   if (window.DOMParser) {
+      parser=new DOMParser();
+      xmlDoc=parser.parseFromString(xmlText,"text/xml");
+   } else { // Internet Explorer
+      xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+      xmlDoc.async="false";
+      xmlDoc.loadXML(xmlText); 
+   }
+   return xmlDoc;
+}
+Loading and parsing a xml file into xml DOM object:
+
+function loadXml(xmlUrl) {
+   if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+   } else {// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+   }
+   xmlhttp.open("GET",xmlUrl,false);
+   xmlhttp.send();
+   xmlDoc=xmlhttp.responseXML;
+   return xmlDoc;
+}
+Create the markers from data in xml DOM object:
+
+function createMarkers(xmlDoc) {
+   var items = xmlDoc.getElementsByTagName('item');
+   for(var i=0; i<items.length; i++) {
+      var positionEl = items[i].getElementsByTagName('position')[0];
+      var latlng = new google.maps.LatLng(positionEl.getAttribute('lat'), positionEl.getAttribute('lng'));
+      var titleNode = items[i].getElementsByTagName('title')[0].childNodes[0];
+      var marker = new google.maps.Marker({
+          position: latlng,
+          map: map,
+          title: titleNode.nodeValue
+      });
+    }
+}
+</script>

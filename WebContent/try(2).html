@@ -1,0 +1,161 @@
+<DOCTYPE HTML!>
+<HTML>
+<HEAD>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>social tracker</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <style> 	body{
+background-image: -moz-linear-gradient(-45deg, #4169E1 26%, #0000FF);
+background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0.26, #4169E1), color-stop(1.0, #0000FF));
+background-color: #DDDDDD;
+}
+.button {
+background-image: -moz-linear-gradient(top, #FFFF00, #FFFFFF);
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #FFFF00), color-stop(1.0, #FFFFFF));
+background-color: #DDDDDD; 
+color:black;
+   text-align: center;
+    display: inline-block;
+    font-size: 18px;
+	height: 200px;
+	width: 200px;
+	line-height: 1.428571429;
+  	border-radius: 100%;
+	font-family: Barrio;
+	shadow: 10px 10px 5px #888888;
+}
+.modal  {
+    background-color: rgba(4, 4, 4, 0.8);
+    border-radius: 0.9;
+    border-color: green;
+    body-color:yellow:
+    }
+   
+</style>
+</HEAD>
+<script>
+function check(){
+	if (null==session.getAttribute("key))
+	{
+		window.location.href="try(2).html"
+	}
+	else{
+	 	window.location.href="home.jsp"
+	}
+	}
+</script>
+<header onload="check()">
+
+	<div class="jumbotron">
+		<p style="font-color:black; text-align:center;">SOCIAL TRACKER</p>
+		 <ul class="nav navbar-nav navbar-right">
+                  <li><a href="reg.html">Register   <span class="glyphicon glyphicon-edit"></span></a></li>
+                  <li class="dropdown">
+                     <a href="#s" class="dropdown-toggle" data-toggle="dropdown">Login     <span class="glyphicon glyphicon-user"></span> <b class="caret"></b></a>
+                     <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+                        <li>
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <form class="form" role="form" method="post" action="login.jsp" accept-charset="UTF-8" id="login-nav">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="username">User Name</label>
+                                       <input type="username" class="form-control" name="username" placeholder="username" required>
+                                    </div>
+                                    <div class="form-group">
+                                       <label class="sr-only" for="Password">Password</label>
+                                       <input type="password" class="form-control" name="password" placeholder="password" required>
+                                    </div>
+                                    <div class="form-group">
+                                       <button type="submit" class="btn btn-success btn-block">Login</button>
+                                    </div>
+                                 </form>
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+	</div>
+</header>
+<BODY>
+
+<div class="container-fluid">
+	
+	<div class="row">
+    	<div class="col-sm-4 col-md-6">
+      		<div class="flip-container" ontouchstart="this.classList.toggle('hover');"  >
+	<div class="flipper">
+		<div class="front">
+			<button class="button" data-toggle="modal" data-target="#myModal1" style="font-size:27px">Chat</button>
+		</div>
+		<div class="back">
+			<button class="button" data-toggle="modal" data-target="#myModal1" style="font-size:27px">Interact with your friends by exchanging messages</button>
+		</div>
+	</div>
+</div>
+    	</div>
+
+    	<div class="col-sm-4 col-md-6" ">
+      		<div class="flip-container" ontouchstart="this.classList.toggle('hover');" >
+	<div class="flipper">
+		<div class="front">
+			<button class="button" data-toggle="modal" data-target="#myModal1" style="font-size:27px">Track a friend</button>
+		</div>
+		<div class="back">
+			<button class="button" data-toggle="modal" data-target="#myModal1">Search your friends faster.Just request for permission</button>
+		</div>
+	</div>
+</div>
+    	</div>
+  </div>
+</div>
+<a href="group.jsp"><div class="container-fluid">
+	<div class="row">
+    	<div class="col-sm-4 col-md-6">
+      		<div class="flip-container" ontouchstart="this.classList.toggle('hover');" >
+	<div class="flipper">
+		<div class="front">
+			<button class="button" data-toggle="modal" data-target="#myModal1" style="font-size:27px">Make a group</button>
+		</div>
+		<div class="back">
+			<button class="button" data-toggle="modal" data-target="#myModal1">Make Messaging a group affair.Chat with a group here.</button>
+		</div>
+	</div>
+</div>
+    	</div>
+</a>
+    	<div class="col-sm-4 col-md-6" ">
+      		<div class="flip-container" ontouchstart="this.classList.toggle('hover');" >
+	<div class="flipper">
+		<div class="front">
+			<button class="button" data-toggle="modal" data-target="#myModal1" style="font-size:27px">Add a friend</button>
+		</div>
+		<div class="back">
+			<button class="button" data-toggle="modal" data-target="#myModal1" href=>Make your experience interesting by adding your friends.</button>
+		</div>
+	</div>
+</div>
+    	</div>
+  </div>
+</div>
+ <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>You are NOT Logged in !!!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger"" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<footer>
+	<p style="background-color: grey;font-color:black; text-align:center">Stay social stay connected</p>
+</footer>
+</BODY>

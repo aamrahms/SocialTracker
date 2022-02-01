@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="script/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+			if(window.navigator.geolocation){
+				var myGeoloc = window.navigator.geolocation;
+				
+				options = {
+						enableHighAccuracy: true,
+						maximumAge: 5000,
+						timeout: 5000
+				}
+				
+				myGeoloc.getCurrentPosition(succesHandler);
+				
+				function succesHandler(position){
+					$("#currentPos").text("Current Latitude: " + 
+							position.coords.latitude + " Current Longitude: " +
+							position.coords.longitude);
+				}
+				
+				function errorHandler(errObj){
+					//alert("here" + errObj);
+					$("#currentPos").text("Error : " + errObj.code + "Error message : "+ errObj.message);
+				}
+			}
+			else{
+				alert("Geolocation is not supported by your browser");
+			}
+	
+	});
+</script>
+</head>
+<body>
+<h1>Geolocation Demo</h1>
+<p id="currentPos"></p>
+<button id="btn1">Get Location</button>
+</body>
+</html>

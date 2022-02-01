@@ -1,0 +1,255 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Register</title>
+  <link type="text/css" rel="stylesheet" href="style.css"/>
+  <script type="text/javascript" src="script/jquery-1.11.3.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+<style>
+body{
+background-image:url(pics/495758381.jpg);
+background-size:cover;
+background-color: #DDDDDD;
+padding: 10px;
+font-family: Verdana, Geneva, sans-serif;
+font-size: 12pt;
+color: #000000;
+text-align: center;
+}
+table{
+padding:20px;
+margin:auto;
+}
+tr{
+padding:10px;
+
+}
+td{
+padding:13px;
+
+}
+button{
+position:center;
+}
+</style>
+<script>
+	function tel(tel){
+		
+		if(tel.length>=10 && tel.length<=15)
+			{
+				return this.tel;
+			
+			}
+          else
+                     {
+                         alert("Contact no. should be of atleast 10 numbers");
+                         
+                     }}
+		
+	
+</script>   
+<script>
+    function pas(pas) 
+    { 
+        var passw=  /^[A-Za-z]\w{7,14}$/;
+        if(pas.value.match(passw) && pas.length>==8) 
+        { 
+            return this.pas;
+        }
+        else
+        { 
+            alert('Enter password containing atleast 8 characters  !');
+        }
+    }
+</script>
+<script>
+
+function validateF(first)
+    {    
+   var letters1 = /^[A-Za-z]*$/;
+    
+      if(first.value.match(letters1))
+     {
+          // alert("please enter characters only");
+         return true;       
+     }
+     else{
+   alert("please enter characters only");
+     return false;
+     }
+  
+    }
+    </script>
+    <script>
+
+function validateL(last)
+    {    
+   var letters1 = /^[A-Za-z]*$/;
+    
+      if(last.value.match(letters1))
+     {
+          // alert("please enter characters only");
+         return true;       
+     }
+     else{
+   alert("please enter characters only");
+     return false;
+     }
+  
+    }
+    </script>
+
+
+<script>
+    function user(){
+		var user=document.getElementById("username");
+		if(user.length>==3 && user.length<==15)
+			{
+				return this.user;
+			
+			}
+                 else
+                     {
+                         alert("Inappropriate length");
+                         
+                     }}
+</script>
+<script>
+
+function abc()
+{/*
+	var tel=document.getElementById("tel");
+	if(tel.length>=10 && tel.length<=15)
+	{
+		tel.value=tel;
+	
+	}
+  else
+    {
+    tel.value=prompt("Enter the correct Contact no. It should atleast have 10 digits");
+                 
+    }
+	
+	
+	var pas=document.getElementById("pas");
+	var passw=  /^[A-Za-z]\w{7,14}$/;
+    if(pas.value.match(passw) && pas.length>==8) 
+    { 
+        return this.pas;
+    }
+    else
+    { 
+        alert('Enter password containing atleast 8 characters  !');
+    }
+    
+    
+    var user=document.getElementById("username");
+    if(user.length>==3 && user.length<==15)
+	{
+		return this.user;
+	
+	}
+         else
+             {
+                 alert("Inappropriate length");
+                 
+             }
+    
+    var em=document.getElementById("em");
+    var at=email.indexOf("@");
+    var dot=email.lastIndexOf(".");
+    var space=email.indexOf(" ");
+    if((at!==-1) && (at!==0) && (dot!==-1) && (dot!==0) && (dot>at+1) && (email.length>dot+1) && (space===-1))
+        {
+            return this.email;
+        }
+    else
+        {
+            alert("Invalid email, needs an @ and a .");
+        	return false;
+        }
+*/}}
+</script>
+<script>
+    function em(email)
+    {
+    	
+        var at=email.indexOf("@");
+        var dot=email.lastIndexOf(".");
+        var space=email.indexOf(" ");
+        if((at!==-1) && (at!==0) && (dot!==-1) && (dot!==0) && (dot>at+1) && (email.length>dot+1) && (space===-1))
+            {
+                return this.email;
+            }
+        else
+            {
+                alert("Invalid email, needs an @ and a .");
+            	return false;
+            }
+    }
+        
+</script>
+    
+
+</head>
+<body>
+<header>
+<div id="header"> </div>
+</header>
+
+<table>
+<tr> <h2>REGISTRATION.  </h2> <br><br> </tr>
+<form onsubmit="abc()" method="post" action="reg.jsp" >
+<fieldset>
+<tr><td><b>
+   First Name  </b> </td><td>:</td> 
+  <td><input type="text"  name="first" id="first" class="form-control" onblur="return validateF(first)" placeholder="Enter your First Name" autofocus required/></td></tr>
+  </tr>
+<tr>
+<td><b>Last Name </b> </td><td>:</td> 
+  <td><input type="text" name="last" id="last" class="form-control"  placeholder="Enter your Last Name" required/>
+								 </td></tr>
+  <tr>
+     <td><b>Email </b> </td><td>:</td> 
+    <td><input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email" onblur=" return em(this.value)" required/>
+								</td> </tr>
+  <tr> 
+    <td><b>
+Date of Birth</b>  </td><td>:</td> 
+    <td><input type="date" name="date" id="date" class="form-control" /> 
+    </td></tr>
+ 
+<tr><td><b>
+ Contact </b></td><td>:</td> 
+  <td><input type = "tel" name ="contact" class="form-control" onblur=" return tel(this.value)" required></td> </tr>
+  <tr>
+    <td><b> Username </b></td><td>:</td> 
+    <td><input type="text" class="form-control" name="username" id="username" onblur=" user()" placeholder="Enter your Username" required/>
+								</td> </tr>
+<tr>
+  <td> <b>Password</b> </td><td>:</td> 
+  <td><input type="password" class="form-control" name="password" id="password" onblur=" return pas(this.value)" placeholder="Enter your Password" onblur="pas(this.value)" required/>
+								</td> </tr>
+<tr><td><br/> <div class="form-group ">
+							<button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+						</div> </td></tr>
+  
+</table>
+</fieldset>
+
+</form> 
+
+<footer>
+<div id="footer"></div>
+		
+</footer>
+</body>
+</html>
+
